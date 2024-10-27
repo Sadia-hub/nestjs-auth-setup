@@ -19,7 +19,7 @@ export class AuthController {
     @Throttle({
         default: { limit: 1, ttl: 1000 }
     })
-    @Get('/signin')
+    @Post('/signin')
     signIn(@Body() loginDto: CreateSignInDto): Promise<{ token: string }> {
         return this.authService.signIn(loginDto);
     }
